@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  img(src="/images/menu.png" id="menu" onclick="menu()") 
+  div(id="menuLinks" class="inisible" class="deskNav")
+    a(id="username") !{User.username} 
+    a(href="/logOut" id="logout") kabax 
+    a(href="feedback" id="feedback") Nala Soo xidhiidh 
+    a(href="feedback" id="feedback") cillad noo soo gudbi
+    a(href="/baraaktiisSpace")| dib unoqo
+ 
+  p Guud ahaan, waxaad barattay !{User.progress} suaalood. Waxa kuu hadhay !{questionsCount}
+  meter(id = 'progress' value=User.progress min ='0' max = questionsCount)
+  br
+  div(id="sectionsContainer")
+    div(class="section")
+      a(href="practiceQuestions1?part=1") Qaybta koowaad
+      p Aqoonta ruqsadda iyo warbixin muhiima.
+      p Waxaad kajawaabtay !{User.progress} suaalood. Waxa kuu hadhay !{part1}
+      meter(id = 'progress' value=User.progress min ='0' max = part1)
+    div(class="section")
+      if User.progress >= 11
+        a(href="practiceQuestions1?part=2") Qaybta labaad
+      else
+        a(href="finishPrevious") qaybta koowaad dhammee, si aad qaybta labaad ubilowdo
+      p Sharciyada taraafiga iyo kuwa guud
+      p Waxaad kajawaabtay !{User.progress-part1 > 0 ? User.progress-part1: 0} suaalood. Waxa kuu hadhay !{part2}
+      meter(id = 'progress' value=(User.progress-part1 > 0 ? User.progress-part1: 0) min ='0' max = part2)
+    div(class="section")
+      if User.progress >= 55 
+        a(href="practiceQuestions1?part=3") Qaybta saddexaad
+      else
+         a(href="finishPrevious") qaybaha hore dhammee, si aad qaybta Saddexaad ubilowdo
+      p Tusmooyinka wadooyinka.
+      p Waxaad kajawaabtay !{User.progress-part1-part2 > 0 ? User.progress-part1-part2: 0} suaalood. Waxa kuu hadhay !{part3}
+      meter(id = 'progress' value=(User.progress-part1-par2 > 0 ? User.progress-part1-part2: 0) min ='0' max = part3)
+    div(class="section")
+      if User.progress >= 108
+        a(href="practiceQuestions1?part=4") Qaybta afaraad
+      else
+         a(href="finishPrevious") qaybaha hore dhammee, si aad qaybta afaraad ubilowdo
+      p Warbixinno dheeraad ah.
+      p Waxaad kajawaabtay !{User.progress-part1-part2-part3 > 0 ? User.progress-part1-part2-part3: 0} suaalood. Waxa kuu hadhay !{part4}
+      meter(id = 'progress' value=(User.progress-part1-par2-part3 > 0 ? User.progress-part1-part2-part3: 0) min ='0' max = part4)
+  div(id="footer")
+    a(href="feedback") Nala Soo xidhiidh amma cillad nala soo socodsii
+  script(type='text/javascript' src='/javascripts/next.js')
+    
+  

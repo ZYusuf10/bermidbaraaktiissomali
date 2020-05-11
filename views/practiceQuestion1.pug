@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css') 
+    meta(name="viewport" content="width= device-width, initial-scale=1")
+  body
+    block content
+      nav(id="que-nav")
+            ul
+                li
+                    a(href="/baraaktiisSpace") dib unoqo
+      h2= title
+      div(class="sectionQue")
+        div(id="question")
+          p !{questions[index].question}
+          if part == '3'
+            img(src="/images/"+choiceArray[4]+".jpg" class="signs")
+          else
+            img(src="/images/"+choiceArray[4]+".jpg" class="inisible")
+          div(id="randomChoices") 
+      div(id="practiceNavigation")
+        //input(class="nextpre" type="button" value="su'aashii hore" onclick="previous()") 
+        input(class="nextpre" type="button" value="su'aasha ku xigta" onclick="next()") 
+        //-this div contains answer1, answer2, answer3 and correct and is used in front end javascript rendering questions randomly.
+      div(id="inisible" class="inisible") 
+        div(id="answer1") !{choiceArray[0]}
+        div(id="answer2") !{choiceArray[1]}
+        div(id="answer3") !{choiceArray[2]}
+        div(id="correct") !{choiceArray[3]}
+        
+        div(id="index") !{index}
+      div(id = 'progress')
+        if part == '1'
+          div(class="inisible" id="part") !{part}
+          p Waxaad kajawaabtay si sax ah !{user.progress} suaalood. Qaybtani waa !{questions.length} su aaloot ee hore..
+          meter(id = 'progress' value=user.progress min ='0' max = 11)
+        else if part == '2'
+          div(class="inisible" id="part") !{part}
+          p Waxaad kajawaabtay !{User.progress-part1 > 0 ? User.progress-part1: 0} suaalood. Waxa kuu hadhay !{part2}
+          meter(id = 'progress' value=(User.progress-part1 > 0 ? User.progress-part1: 0) min ='0' max = part2)
+        else if part == '3'
+          div(class="inisible" id="part") !{part}
+          p Waxaad kajawaabtay si sax ah !{user.progress-part1-part3 <= 0 ? 0:questions.length-part1} suaalood. Baro !{part3} ka su alood oo dhan.
+          meter(id = 'progress' value=user.progress-part1-part3 <= 0 ? 0:questions.length-part1 min ='0' max = 11)
+        else if part == '4'
+          div(class="inisible" id="part") !{part}
+          p Waxaad kajawaabtay si sax ah !{user.progress-part1-part2-part3 <= 0 ? 0:questions.length-part1} suaalood. Baro !{part4} ka su alood oo dhan.
+          meter(id = 'progress' value=user.progress-part1-part2-part3 <= 0 ? 0:questions.length-part1 min ='0' max = 11)
+      script(type='text/javascript' src='/javascripts/next.js')
+      div(id="length" class="inisible") !{length}
+
+  

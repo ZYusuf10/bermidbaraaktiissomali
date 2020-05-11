@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h2= title
+  nav
+    ul
+        li
+            a(href="/") home
+  form(method='POST' action='inputQuestionPost')
+    label(for=question) question
+    textarea(name="question" cols="50" rows="5")
+    br
+    label(for=answer1) answer1
+    textarea(name="answer1" cols="50" rows="5")
+    br
+    label(for=answer2) answer2
+    textarea(name="answer2" cols="50" rows="5")
+    br
+    label(for=answer3) answer3
+    textarea(name="answer3" cols="50" rows="5")
+    br
+    label(for=correct) correct
+    textarea(name="correct" cols="50" rows="5")
+    br
+    label(for=part) part
+    input#part.form-control(type='text' name='part' required='true')
+    br
+    button.btn.btn-primary(type='submit') Submit

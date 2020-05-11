@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  nav(id="goback")
+    a(href="/") dib unoqo
+  h2(id="loginH2")= title
+  form(method='POST' action='/loginPost' id="loginForm")
+    input#username.form-control(type='text' placeholder='Magacaad Isticmaasho' name='username' required='true')
+    br
+    input#password.form-control(type='text' placeholder='Baasweedhka' name='password' required='true')
+    br
+    button.btn.btn-primary(type='submit' class="submit") SooGal

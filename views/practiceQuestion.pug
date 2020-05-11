@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h2= title
+  nav(onload="myFunction()")
+    ul
+        li
+            a(href="/") home
+  div(id="question")
+    p !{questions[index].question}
+    p a) !{questions[index].answer1}
+    p b) !{questions[index].answer2}
+    p c) !{questions[index].answer3}
+    p d) !{questions[index].correct}
+  div(id="practiceNavigation")
+    a(href="/previousQuestion?index="+index) su'aashii hore
+    a(href="/nextQuestion?index="+index) su'aasha ku xigta
+    script(type='text/javascript' src='/javascripts/next.js')
+
+  

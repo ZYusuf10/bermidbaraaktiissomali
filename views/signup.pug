@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  nav(id="goback")
+    a(href="/") dib unoqo
+  h2(id="signupH2")= title
+  form(method='POST' action='signUpPost' id="signupForm")
+    br
+    input#firstname.form-control(type='text' placeholder='Gali MagacaKoowaad halkan' name='firstname' required='true')
+    br
+    input#lastname.form-control(type='text' placeholder='Gali MagacaLabaad halkan ' name='lastname' required='true')
+    br
+    input#password.form-control(type='text' placeholder='Gali Baasweedhcusub halkan' name='password' required='true')
+    br
+    input#username.form-control(type='text' placeholder='Gali Magacaad Kusoo Galayso halkan' name='username' required='true')
+    br
+    input#progress.form-control(type='hidden' value='0' name='progress' required='true')
+    br
+    button.btn.btn-primary(type='submit' class="submit") Dhammaystir

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h2= title
+  nav
+    ul
+        li
+            a(href="/baraaktiisSpace") dib unoqo
+  form(method='POST' action='')
+    label(for=feedback) Halkan Ku Qor Maassajkaad Noo Soo Diraysid
+    textarea(name="feedback" cols="50" rows="5")
+    labek(for="contact") Numberkaaga amma Emailkaaga
+    input(type="text" name="contact")
+    
+    button.btn.btn-primary(type='submit' onclick="recieved()") Dir
+    script(type='text/javascript' src='/javascripts/next.js')
