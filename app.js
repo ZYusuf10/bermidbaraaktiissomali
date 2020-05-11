@@ -68,9 +68,10 @@ app.use(function(err, req, res, next) {
 //javascript
 app.use(express.static('public'))
 
-app.listen(80, function () {
-  console.log('app listening on port ' + 80 + '!');
-});
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`Listening on ${port}`));
 
 
 module.exports = app;
